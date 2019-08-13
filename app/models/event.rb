@@ -14,7 +14,7 @@ validates :duration,
 		presence: true,
 		numericality: { only_integer: true, greater_than: 0} #integer == %5
 
-validates :multiple_of_5
+validates :multiple_of_5,
 		presence: true
 
 validates :title,

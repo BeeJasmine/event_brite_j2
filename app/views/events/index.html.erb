@@ -16,4 +16,27 @@
       <div class="col-sm-2">
       	
       </div>
-      <div class="col-sm-2">
+
+
+
+
+
+<center>
+<%@event.all.reverse_each do |e|%>
+<div class="card" style="width: 18rem;">
+	<div class="card-img-top">
+  <%=image_tag('back.jpg', size: '286x200')%></div>
+  <div class="card-body">
+    <p class="card-text my-text"><%=e.title%></p>
+    <small style="font-size: 10px;"><%=link_to "En savoir plus", event_path(e.id)%></small>
+    <br>
+     <small><p style="font-size: 10px;" class="text-secondary">
+     À partir de <%=e.price%>.00 €
+     <br>
+    <%=e.message_time%>, Durée : <%=e.duration%> min
+   	<br>
+    <%=e.location%></p></small>
+  </div>
+</div>
+  <%end%>
+</center>

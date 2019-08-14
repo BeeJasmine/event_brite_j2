@@ -12,21 +12,21 @@ validates :start_date,
 
 validates :duration,
 		presence: true,
-		numericality: { only_integer: true, greater_than: 0} #integer == %5
+		numericality: { only_integer: true, greater_than: 0 } #integer == %5
 
 validates :multiple_of_5,
 		presence: true
 
 validates :title,
 		presence: true, 
-		length: { in 5..140} #titre entre 5 et 140 caractères #{minimum: 5, maximum: 140}
+		length: {minimum: 5, maximum: 140} # { in 5..140 } #titre entre 5 et 140 caractères #{minimum: 5, maximum: 140}
 
 validates :description, 
-		length: { in 20..1000} #description entre 20 et 1000 caractères
+		length: {minimum: 20, maximum: 1000} #{ in 20..1000 } #description entre 20 et 1000 caractères
 
 validates :price, 
 		presence: true, 
-		numericality: { only_integer: true, in 1..1000}#integer in 1..1000 #{greater_than: 0, less_than: 1000}
+		numericality: {only_integer: true, minimum: 1, maximum: 1000}#in 1..1000} #integer in 1..1000 #{greater_than: 0, less_than: 1000}
 
 validates :location, 
 		presence: true #le lieu est obligatoire

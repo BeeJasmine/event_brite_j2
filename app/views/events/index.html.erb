@@ -1,42 +1,19 @@
-<div class="container">
-	<div class='row'>
-		<div class="col-sm-2">
-			<a href="<%=new_event_path%>"><div class="btn btn-success btn-lg" role="button"><p>Create an event</p></div></a>
-		</div>
-		<div class="col-sm-2">
-			
-		</div>
-		<div class="col-sm-8">
-			<h1>All the events programmed</h1>
-		</div>
-	</div>
-	<div class="row">
-    <%@events.each do |event|%>
-      <!-- event-->
-      <div class="col-sm-2">
-      	
-      </div>
-
-
-
-
-
 <center>
-<%@event.all.reverse_each do |e|%>
+
+<%=@events.reverse_each do |e|%>
 <div class="card" style="width: 18rem;">
 	<div class="card-img-top">
-  <%=image_tag('back.jpg', size: '286x200')%></div>
   <div class="card-body">
     <p class="card-text my-text"><%=e.title%></p>
-    <small style="font-size: 10px;"><%=link_to "En savoir plus", event_path(e.id)%></small>
+    <small style="font-size: 10px;"><%=link_to "En savoir plus", event_path(id)%></small>
     <br>
      <small><p style="font-size: 10px;" class="text-secondary">
-     À partir de <%=e.price%>.00 €
+     À partir de <%=price%>.00 €
      <br>
     <%=e.message_time%>, Durée : <%=e.duration%> min
    	<br>
     <%=e.location%></p></small>
   </div>
 </div>
-  <%end%>
+<%end%>
 </center>

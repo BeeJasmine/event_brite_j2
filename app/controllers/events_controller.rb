@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		@end_date = end_date(@event.start_date, @event.duration)
 		@users = @event.users
+		#@admine = current_user
 		@attendance = Attendance.find_by(user: current_user, attended_event: @event)
 	end
 
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
 				redirect_to event_path(@event.id)
 			else
 				flash[:danger] = "Event creation aborted : #{@event.errors.messages}"
-				puts @event.errors.messages
+				puts @event.errors.messagessession_path
 				render 'new'
 			end
 	end
@@ -39,6 +40,7 @@ class EventsController < ApplicationController
 	end
 
 	private
+
 	def end_date(start_date, duration)
 		start_date + duration
 	end
